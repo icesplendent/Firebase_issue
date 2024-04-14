@@ -5,28 +5,22 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { init_firebase } from "./config";
+import initFirebase from "./config";
 
 // Custom alert
 function create_alert(type, message) {
   const alertarea = document.getElementById("custom-alert");
   if (type == "success") {
-    const str_html =
-      "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success! </strong>" +
-      message +
-      "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+    const str_html = `<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success! </strong>${message}<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>`;
     alertarea.innerHTML = str_html;
   } else if (type == "error") {
-    const str_html =
-      "<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Error! </strong>" +
-      message +
-      "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+    const str_html = `<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Error! </strong>${message}<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>`;
     alertarea.innerHTML = str_html;
   }
 }
 
 const initApp = () => {
-  init_firebase();
+  initFirebase();
 
   // Login with Email/Password
   const txtEmail = document.getElementById("inputEmail");
@@ -89,7 +83,7 @@ const initApp = () => {
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        const user = result.user;
+        const { user } = result;
         window.location.href = "index.html";
       })
       .catch((e) => {
