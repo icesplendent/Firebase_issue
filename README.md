@@ -9,9 +9,22 @@
 7. `firebase serve` for local testing
 8. `firebase deploy` for online deployment
 
+## Firebase Feature
+
+- Storage
+- AppCheck
+- RealTime Database
+- Hosting
+- Authentication
+
 ## Concepts
 
 - This firebase project is based on SDK method
 - Since the browser doesn't support `module`, a bundler `webpack` is implemented in this project to bundle all the `.js` file
 - `.env` file is used to store senstivie information for security reason, which makes google more likely not to mark your website dangerous
 - Contact google via Google Cloud Console if the website is still considered dangerous by google. It usually takes 2 days to remove the dangerous mark.
+-
+
+## Demo
+
+[LINK](https://notstatic-33718.web.app/)
